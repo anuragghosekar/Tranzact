@@ -1,0 +1,73 @@
+.menu-label {
+  font-weight: 500; 
+  color: #e9e9e9; /* Black */
+  cursor: pointer;
+  margin: 4px 0;
+  padding: 5px;
+}
+
+.submenu-label {
+  font-weight: 500; 
+  color: #dddddd; /* Dark gray */
+  cursor: pointer;
+  margin: 4px 0;
+  padding: 5px;
+}
+
+.submenuChild-label {
+  font-weight: 500; 
+  color: #dddddd; /* Slightly lighter gray */
+  cursor: pointer;
+  margin: 4px 0;
+  padding: 5px;
+}
+.submenuGrandChild-label{
+  font-weight: 500; 
+  color: #dddddd; /* Slightly lighter gray */
+  cursor: pointer;
+  margin: 4px 0;
+  padding: 5px;
+}
+
+.leaf-label {
+  font-weight: 500;
+  color: #dddddd; /* Light gray-black */
+  cursor: pointer;
+  margin: 4px 0;
+}
+
+
+.leaf-label:hover {
+  background-color: #0097A7;
+  border-radius: 4px;
+}
+
+/* Flex wrapper for dot + text */
+.leaf-content {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* space between dot and text */
+}
+
+/* Ensure dot stays centered even on multiline text */
+.dot-icon {
+  align-self: center;
+  font-size: 1rem;
+  min-width: 1em;
+}
+
+/* Optional: wrap text if it's too long */
+.leaf-text {
+  white-space: normal;
+  word-wrap: break-word;
+  flex: 1;
+}
+
+
+.menu-label:hover,
+.submenu-label:hover,
+.leaf-label:hover {
+  background-color: #ddd;
+  color: #3e3e3e;
+  border-radius: 4px;
+}

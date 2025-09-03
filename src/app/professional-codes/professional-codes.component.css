@@ -1,0 +1,163 @@
+/* Assuming navbar height is 60px */
+:root {
+  --navbar-height: 60px; /* Adjust the height of your navbar here */
+}
+
+.form-container {
+  width: 100%;
+  height: calc(100vh - var(--navbar-height));  /* Full height minus navbar height */
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 0px;
+  padding-right: 05px;
+  /* border: 1px solid #ddd;
+  border-radius: 5px; */
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-header{
+  position: sticky;
+  margin-bottom: 15px;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between; /* push h3 to left and select to right */
+  align-items: center;
+  padding-right: 20px; 
+}
+.formContainer{
+  overflow-y: auto;
+  flex-grow: 1;
+  height: 74vh;
+}
+
+.form-header h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+   color: #b71c1c;
+  font-weight: bold;
+}
+.form-header select {
+  padding: 4px 8px;
+   width: 15%;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  background-color: #f1f1f1;
+}
+
+.form-content {
+  flex-grow: 1;  /* Pushes content to take available space */
+  overflow-y: auto;
+  padding-left: 20px;
+  padding-right: 20px;  /* Prevents overflow */
+}
+
+.form-row {
+  display: flex;
+  /* justify-content: space-between; */
+  margin-bottom: 15px;
+}
+
+.form-group {
+  width: 48%;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  /* gap: 20px; */
+}
+
+.form-group label {
+  width: 45%;
+  font-size: 14px;
+  font-weight:400;
+}
+
+.form-group input,
+.form-group select {
+  width: 50%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button-group {
+ margin-left: 250px;
+ margin-right: 20px;
+ position: fixed;
+ bottom: 42px;
+ left: 0;
+ gap: 10px;
+ width: calc(100% - 14.5rem);
+ text-align: center;
+ display: flex;
+ justify-content: flex-end;
+ padding: 12px 40px;
+ border-bottom: 1px solid #ddd;
+ margin-top: auto;
+}
+
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background: #0056b3;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background: #414141;
+}
+
+button:nth-child(2) {
+  background: #0056b3;
+}
+
+button:nth-child(2):hover {
+  background: #414141;
+}
+
+.firstOuterDiv{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+.secondOuterDiv{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-top: 20px;
+    width: 40%;
+}
+.secondOuterDiv .form-row .form-group label{
+    width: 40%;
+}
+.mandatoryMark{
+    color: red;
+    padding: 5px;
+}
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.error-box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.inputBoxWithButton .picListButton{
+    background-color: #ccc;
+    color: black;
+    padding: 5px;
+
+}
+.inputBoxWithButton{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}

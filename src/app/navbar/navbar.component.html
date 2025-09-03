@@ -1,0 +1,51 @@
+<nav class="navbar">
+  <div class="left-section">
+    <div class="logo-container">
+      <img src="../../assets/logo/bankLogo-removebg-preview.png" class="logo" (click)="router.navigate(['/dashboard'])"
+        alt="Absa Logo" />
+      <h2 class="logo-name">Zenith Bank<span></span></h2>
+    </div>
+
+  </div>
+
+ <div class="right-section">
+  <div class="search-box">
+    <input
+      type="text"
+      placeholder="Search..." 
+    />
+  </div>
+
+  <div class="notification-wrapper">
+    <button class="notification-icon" (click)="toggleNotifications()">
+      🔔
+      <span *ngIf="notifications.length > 0" class="notification-badge">
+        {{ notifications.length }}
+      </span>
+    </button>
+    <div *ngIf="showNotifications" class="notification-popup">
+      <h4>Notifications</h4>
+      <div *ngIf="notifications.length === 0" class="no-notification">No new notifications</div>
+      <ul *ngIf="notifications.length > 0">
+        <li *ngFor="let notification of notifications">
+          {{ notification.message }}
+          <span class="time">{{ notification.time | date: 'shortTime' }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <span class="detail last-span">🕒 <strong>{{ currentTime | date: 'hh:mm a' }}</strong></span>
+
+  <span class="actions" style="position: relative;">
+    <a (click)="toggleDropdown()">About</a> |
+    <a (click)="handleLogout()">Logout</a>
+    <div *ngIf="showDropdown" class="dropdown-menu">
+      <a (click)="openInfo.emit(); showDropdown = false">Info</a>
+      <a (click)="openTheme.emit(); showDropdown = false">Theme</a>
+    </div>
+  </span>
+</div>
+  
+
+</nav>

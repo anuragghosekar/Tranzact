@@ -1,0 +1,39 @@
+<div class="welcome-screen" *ngIf="showWelcome">
+  <div class="logo-container">
+    <!-- <h1>Welcome to Absa <span>Access Platform</span></h1> -->
+    <h1>Zenith Bank</h1>
+    <img src="../../assets/logo/bankLogo-removebg-preview.png" alt="Absa Logo" class="logo">
+  </div>
+  <div class="welcome-footer">
+    <small>&copy; 2025 Zenith Bank. All rights reserved.</small>
+  </div>
+</div>
+
+<div class="container" *ngIf="!showWelcome">
+  <div class="left-section">
+      <h1>Welcome to Zenith Bank</h1>
+      <!-- <h2>Access Platform</h2> -->
+      <img src="../../assets/logo/bankLogo-removebg-preview.png" alt="Absa Logo" class="logo">
+      <small>&copy; 2025 Zenith Bank. All rights reserved.</small>
+  </div>
+  <div class="right-section">
+      <span class="login-header">Login</span>
+      <!-- <span class="title_line">Get amazing banking services tailored to you</span> -->
+      <form (submit)="onSubmit()">
+        <div class="form-group">
+            <label for="username">User Name</label>
+            <input type="text" id="username" name="username" [(ngModel)]="username" placeholder="Enter your username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Enter your password" required>
+        </div>
+        <!-- <div class="remember-me">
+            <input type="checkbox" id="remember" name="rememberMe" [(ngModel)]="rememberMe">
+            <label for="remember">Remember me</label>
+        </div> -->
+        <button type="submit" class="login-btn">LOGIN</button>
+    </form>
+
+  </div>
+</div>

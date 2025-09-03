@@ -1,0 +1,249 @@
+
+
+
+  .container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 60px; /* Space below navbar */
+  height: calc(100vh - 60px); /* Full height minus navbar */
+  overflow: hidden;
+}
+
+
+/* Sidebar styling – adjust if not already styled in the component */
+app-sidebar {
+  width: 238px;
+  min-width: 238px;
+  background-color: #f4f4f4;
+  transition: transform 0.3s ease;
+}
+
+/* Hide sidebar when closed, if using class toggle instead of *ngIf */
+app-sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+/* Main content */
+.content {
+  flex: 1;
+  padding: 20px;
+  padding-bottom: 50px;
+  padding-right: 0px;
+  /* overflow-y: auto; */
+  background: white;
+  height: 100%;
+  transition: margin-left 0.3s ease;
+}
+.bottomDiv{
+  margin-left: 20px;
+}
+.bottom-bar {
+  display: flex;
+  gap: 8px;
+  padding: 2px;
+  margin-left: 12px;
+  position: relative;
+  bottom: 0px;
+  /* background-color: #bcbcbd; */
+  /* border-top: 1px solid #ccc; */
+}
+
+.tab-btn {
+  padding: 10px 12px;
+  /* background-color: #F5F7FA; */
+  background-color: var(--background-color);
+  border: none;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background-color: var(--background-color);
+}
+
+.close-btn {
+  margin-left: 8px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  bottom: 100%;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  min-width: 180px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+}
+.more-dropdown {
+  position: relative;
+}
+
+.more-btn {
+  background: #ddd;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background-color: #ffffff;
+  min-width: 160px;
+  border: 1px solid #ccc;
+  z-index: 1000;
+}
+
+.more-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-tab {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 12px;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-tab.active {
+  background-color: #d0eaff;
+}
+
+
+/* Optional: shift content if sidebar is hidden (if not using *ngIf) */
+.content.expanded {
+  margin-left: 0;
+}
+
+/* Sidebar Toggle Button */
+.toggle-btn {
+  position: fixed;
+  top: 15px;
+  left: 10px;
+  background: #E51B46;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 4px;
+  z-index: 1001;
+  transition: background 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background: #c2183b;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 500px;
+  min-height: 300px;
+  position: relative;
+}
+
+.closebtn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.theme-options {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 100%;
+  margin-top: 50px;
+  /* margin-left: 40px; */
+}
+
+.theme-card {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.theme-card.light { background: #f4f4f4; }
+.theme-card.dark { background: #222; }
+.theme-card.blue { background: #2196f3; }
+
+/* .theme-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 50px;
+} */
+
+.theme-item {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* space between color block and name */
+  cursor: pointer;
+}
+
+/* .theme-card {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+} */
+
+.theme-card.light { background: #66C7CF; }
+.theme-card.dark { background: #8B0000; }
+.theme-card.blue { background: #0A1F44; }
+
+.theme-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+.theme-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  flex-direction: column;
+}
+.theme-card mat-icon {
+  font-size: 25px;
+  color: white;
+}
+
+

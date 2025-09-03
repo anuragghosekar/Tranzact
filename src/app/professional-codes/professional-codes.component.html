@@ -1,0 +1,61 @@
+<div class="form-container">
+    <div class="form-header">
+        <h3>Profession Codes Maintenance</h3>
+        <select [(ngModel)]="selectedOption" (ngModelChange)="onOptionChange($event)">
+            <option *ngFor="let ModificationOption of ModificationOptions" [value]="ModificationOption">{{ ModificationOption }}</option>
+          </select>
+    </div>
+
+<div class="formContainer">
+    <form [formGroup]="professionMaintainanceForm">
+        <div class="form-content">
+        <div class="form-row">
+            <div class="form-group">
+                <label>Profession Code :<span class="mandatoryMark">*</span></label>
+
+                <div class="error-box">
+                    <div class="inputBoxWithButton">
+                    <input type="text" formControlName="professionCode">
+                    <button class="picListButton" (click)="getProfessionDetails()">...</button>
+                </div> 
+                    <div class="error-message" *ng If="professionMaintainanceForm.get('professionCode')?.touched">
+                        <span *ngIf="professionMaintainanceForm.get('professionCode')?.errors?.['required']">
+                          Profession Code is required.
+                        </span>
+                        <span *ngIf="professionMaintainanceForm.get('professionCode')?.errors?.['pattern']">
+                            Must be a numeric.
+                        </span>
+                         <span *ngIf="professionMaintainanceForm.get('professionCode')?.errors?.['maxlength']">
+                            Must be 2-digit number
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label >Profession Name :
+                    <span class="mandatoryMark">*</span></label>
+                <div class="error-box">
+                    <input type="text" formControlName="professionName">
+                    <div class="error-message" *ngIf="professionMaintainanceForm.get('professionName')?.touched">
+                        <span *ngIf="professionMaintainanceForm.get('professionName')?.errors?.['required']">
+                           Profession Name is Required.
+                        </span>
+                        <span *ngIf="professionMaintainanceForm.get('professionName')?.errors?.['pattern']">
+                            Must be a alphanumeric.
+                        </span>
+                        <span *ngIf="professionMaintainanceForm.get('professionName')?.errors?.['maxlength']">
+                            Must be 40-digits.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+       </div>
+        <div class="button-group">
+            <button type="button" (click)="handleOk()">OK</button>
+            <button type="button" (click)="handleCancel()">Close</button>
+            <button type="button" (click)="handleCancel()">Clear</button>
+        </div>
+    </form>
+    </div>
+</div>

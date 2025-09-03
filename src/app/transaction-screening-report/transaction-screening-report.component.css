@@ -1,0 +1,112 @@
+/* Make page scrollable if content overflows */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto; /* enable vertical scroll globally */
+}
+
+/* Main container */
+.form-container {
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #fff;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto; /* allow vertical scroll if needed */
+}
+
+/* Header section */
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+}
+
+.report-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+}
+
+/* Summary box */
+.summary-card {
+  background-color: orange;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  min-width: 160px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.summary-title {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.summary-count {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* File details section */
+.report-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 40px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  padding-left: 4px;
+}
+
+/* Table wrapper */
+.outerDiv {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fefefe;
+  max-height: 65vh; /* limit height if needed */
+  overflow-y: auto; /* enable vertical scrolling inside */
+  overflow-x: auto; /* optional: scroll horizontally if required */
+}
+
+/* Table styles */
+.outerDiv table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+}
+
+.outerDiv th,
+.outerDiv td {
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.outerDiv thead th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Action link */
+.action-link {
+  color: red;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.action-link:hover {
+  text-decoration: underline;
+}

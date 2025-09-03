@@ -1,0 +1,72 @@
+.dashboard-container {
+  text-align: left;
+  padding: 20px;
+  color: #414141;
+}
+.dashboard-container h2 {
+  border-bottom: 1px solid #414141;
+}
+
+.platforms {
+  display: flex;
+  /* justify-content: center; */
+  gap: 20px;
+}
+
+.platform-card {
+  width: 250px;
+  height: 150px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.platform-card:hover {
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.platform-card img {
+  max-width: 100px;
+  height: 48px;
+}
+
+.platform-card h3 {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+
+.dashboard-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #bdb7b7;
+  color: #414141;
+  font-size: 14px;
+}
+
+.admin-panel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+  font-size: 16px;
+  transition: color 0.3s ease-in-out;
+}
+
+.admin-icon {
+  font-size: 22px;
+}
+
+.admin-panel:hover {
+  color: #000;
+}

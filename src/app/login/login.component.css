@@ -1,0 +1,267 @@
+/* Welcome Screen */
+.welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(400deg, var(--primary-color), #f5f7fa);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  z-index: 1000;
+  animation: fadeOut 1s ease-out 2.5s forwards;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.logo-container h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  /* color: #0A1F44; */
+  color: var(--primary-color);
+}
+.logo-container h1 span {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  font-weight: lighter;
+}
+.welcome-footer {
+  position: absolute;
+  bottom: 20px; /* Keep it at the bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
+  color: #414141;
+}
+
+.logo {
+  width: 500px;
+  height: 500px;
+  /* margin-top: 80px; */
+}
+
+/* Animations */
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Hide container until welcome screen disappears */
+.container {
+  opacity: 0;
+  animation: fadeInContent 1s ease-in-out 3s forwards;
+}
+
+@keyframes fadeInContent {
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+
+/* Login Container */
+.container {
+  display: flex;
+  flex-direction: row;
+  /* max-width: 1400px; */
+  width:100%;
+  height: 800px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #F5F7FA;
+  /* min-width: 1024px; */
+
+  /* Centering */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* Left Section (Welcome Section) */
+.left-section {
+  background: linear-gradient(327deg, var(--background-color), #F5F7FA);
+  color: white;
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.left-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  margin-top: 100px;
+  font-weight: 700;
+  /* color: #0A1F44; */
+  color: var(--primary-color);
+}
+.left-section h2 {
+  font-size: 1.5rem;
+  margin: 20px 0 16px;
+  font-weight: 500;
+}
+
+.left-section p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+
+}
+
+.left-section small {
+  margin-top: auto;
+  font-size: 0.9rem;
+  color: #414141;
+}
+
+
+/* Right Section (Login Form) */
+.right-section {
+  flex: 1.5;
+  padding: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+}
+
+.login-header {
+  font-size: 2rem;
+  /* color: #0A1F44; */
+  color: var(--primary-color);;
+  margin-bottom:1.5rem;
+  text-align: left;
+  font-weight: bold;
+}
+.title_line{
+  font-size: 20px;
+  color:#414141;
+  margin-bottom: 3rem;
+}
+
+.login-subheader {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--button-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: var(--button-color);
+  outline: none;
+}
+
+/* Remember Me */
+.remember-me {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.remember-me input {
+  margin-right: 0.5rem;
+}
+
+/* Login Button */
+.login-btn {
+  background-color:var(--button-color);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.9rem;
+  width: 100%;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #414141;
+}
+
+/* Extra Links */
+.extra-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.extra-links a {
+  color: #af144b;
+  text-decoration: none;
+}
+
+.extra-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+  }
+
+  .left-section {
+    padding: 1.5rem;
+  }
+
+  .right-section {
+    padding: 2rem;
+  }
+}
+
+

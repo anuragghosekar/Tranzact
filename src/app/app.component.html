@@ -1,0 +1,87 @@
+<app-navbar *ngIf="!isLoginPage()" (toggleSidebarEvent)="toggleSidebar()"(openInfo)="openInfoDialog()" (openTheme)="openThemeDialog()"></app-navbar>
+
+<div class="container">
+  <app-sidebar *ngIf="!isLoginPage()" [isSidebarOpen]="isSidebarOpen"></app-sidebar>
+
+  <div class="content" [class.expanded]="!isSidebarOpen">
+    <router-outlet></router-outlet>
+
+    <!-- Dynamic Footer Tab Bar -->
+    <footer class="bottom-bar" *ngIf="openWindows.length && shouldShowFooter()">
+  <ng-container *ngFor="let win of visibleTabs">
+    <button
+      class="tab-btn"
+      [class.active]="win.path === activePath"
+      (click)="activateWindow(win.path)">
+      {{ win.title }}
+      <span class="close-btn" (click)="closeWindow(win.path)">×</span>
+    </button>
+  </ng-container>
+
+  <!-- More Dropdown -->
+  <div class="more-dropdown" *ngIf="overflowTabs.length">
+    <button class="tab-btn more-btn">More ▾</button>
+    <div class="dropdown-content">
+      <button
+        *ngFor="let win of overflowTabs"
+        class="dropdown-tab"
+        [class.active]="win.path === activePath"
+        (click)="activateWindow(win.path)">
+        {{ win.title }}
+        <span class="close-btn" (click)="closeWindow(win.path)">×</span>
+      </button>
+    </div>
+  </div>
+</footer>
+
+  </div>
+</div>
+
+<div class="modal-overlay" *ngIf="showInfoDialog">
+  <div class="modal">
+    <button class="closebtn" (click)="showInfoDialog = false">×</button>
+    <h2>Information</h2>
+    <p>This is some app information...</p>
+  </div>
+</div>
+
+<!-- Theme Modal -->
+<div class="modal-overlay" *ngIf="showThemeDialog">
+  <div class="modal">
+    <button class="closebtn" (click)="showThemeDialog = false">×</button>
+    <h2>Select Theme</h2>
+
+    <div class="theme-options">
+      <!-- Aqua Breeze -->
+      <div class="theme-row" (click)="applyTheme('theme-aqua')">
+        <div class="theme-card light">
+          <mat-icon>water_drop</mat-icon>
+        </div>
+        <span class="theme-name">Aqua Breeze</span>
+      </div>
+
+      <!-- Crimson Trust -->
+      <div class="theme-row" (click)="applyTheme('theme-crimson')">
+        <div class="theme-card dark">
+          <mat-icon>favorite</mat-icon>
+        </div>
+        <span class="theme-name">Crimson Trust</span>
+      </div>
+
+      <!-- Midnight Ledger -->
+      <div class="theme-row" (click)="applyTheme('theme-midnight')">
+        <div class="theme-card blue">
+          <mat-icon>nightlight</mat-icon>
+        </div>
+        <span class="theme-name">Midnight Ledger</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

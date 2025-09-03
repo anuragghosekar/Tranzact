@@ -1,0 +1,201 @@
+<div class="form-container">
+  <div class="form-header">
+    <h3>Transaction Screening</h3>
+  </div>
+
+  <div class="formContainer">
+    <form [formGroup]="transactionScreeningForm">
+      <div class="form-content">
+
+        <!-- Upload Transaction File Section -->
+<div class="outerDiv1">
+  <h3>Upload Transaction File</h3>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="file">Select File :</label>
+      <input
+        type="file"
+        id="file"
+        formControlName="file"
+        (change)="onFileSelected($event)"
+      />
+      <div
+        *ngIf="transactionScreeningForm.get('file')?.invalid && transactionScreeningForm.get('file')?.touched"
+        class="error-message"
+      >
+        File is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="uploadedBy">Uploaded By :</label>
+      <input
+        type="text"
+        id="uploadedBy"
+        formControlName="uploadedBy"
+      />
+      <div
+        *ngIf="transactionScreeningForm.get('uploadedBy')?.invalid && transactionScreeningForm.get('uploadedBy')?.touched"
+        class="error-message"
+      >
+        Uploader name is required
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="uploadStatus">Upload Status :</label>
+      <input
+        type="text"
+        id="uploadStatus"
+        formControlName="uploadStatus"
+        readonly
+      />
+    </div>
+    <div class="form-group">
+      <label for="uploadDate">Upload Date :</label>
+      <input
+        type="date"
+        id="uploadDate"
+        formControlName="uploadDate"
+      />
+    </div>
+  </div>
+
+  <div class="button-group" id="upload-file">
+      <button type="button" (click)="onSelectFile()" [disabled]="!transactionScreeningForm.valid">Select File</button>
+      <button type="button" (click)="onUpload()" [disabled]="!transactionScreeningForm.valid">Upload</button>
+      <button type="button" (click)="onRunScan()">Run Scan</button>
+      <button type="button" (click)="onViewScanReport()">View Scan Report</button>
+  </div>
+</div>
+
+<!-- Search Uploaded Files Section -->
+<div class="outerDiv1">
+  <h3>Search Uploaded Files</h3>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="fileId">File ID :</label>
+      <input type="text" id="fileId" formControlName="fileId" />
+    </div>
+    <div class="form-group">
+      <label for="fileName">File :</label>
+      <input type="text" id="fileName" formControlName="fileName" />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="branchCode">Branch Code :</label>
+      <input type="text" id="branchCode" formControlName="branchCode" />
+    </div>
+    <div class="form-group">
+      <label for="status">Status :</label>
+      <input type="text" id="status" formControlName="status" />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="dateFrom">Date From :</label>
+      <input type="date" id="dateFrom" formControlName="dateFrom" />
+    </div>
+    <div class="form-group">
+      <label for="dateTo">Date To :</label>
+      <input type="date" id="dateTo" formControlName="dateTo" />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="userId">User ID :</label>
+      <input type="text" id="userId" formControlName="userId" />
+    </div>
+  </div>
+
+  <div class="button-group">
+      <button type="button" (click)="onSearch()">Search</button>
+      <button type="button" (click)="onResetSearch()">Clear All</button>
+    </div>
+</div>
+
+
+        <!-- File Summary / File Details Tabs -->
+        <div class="outerDiv" style="position: relative;">
+          <div class="tabs-container">
+  <ul class="tabs-list">
+    <li
+      [class.active-tab]="activeTab === 'summary'"
+      (click)="activeTab = 'summary'"
+    >
+      File Summary
+    </li>
+    <li
+      [class.active-tab]="activeTab === 'details'"
+      (click)="activeTab = 'details'"
+    >
+      File Details
+    </li>
+  </ul>
+</div>
+
+
+
+          <!-- Summary Tab -->
+          <div *ngIf="activeTab === 'summary'">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Total Files :</label>
+                <span>{{ totalFiles }}</span>
+              </div>
+              <div class="form-group">
+                <label>Last Upload :</label>
+                <span>{{ lastUpload }}</span>
+              </div>
+            </div>
+          </div> 
+
+          <!-- Details Tab -->
+<!-- Details Tab -->
+<div *ngIf="activeTab === 'details'">
+  <h3>File Details</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>File ID</th>
+        <th>File Name</th>
+        <th>Branch Code</th>
+        <th>No. of Transaction in File</th>
+        <th>Uploaded By</th>
+        <th>Uploaded Date & Time</th>
+        <th>Screening Status</th>
+        <th>No. of Alerts Found</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let file of mockFiles">
+        <td>{{ file.id }}</td>
+        <td>{{ file.name }}</td>
+        <td>{{ file.branch }}</td>
+        <td>{{ file.transactions }}</td>
+        <td>{{ file.uploadedBy }}</td>
+        <td>{{ file.uploadDateTime }}</td>
+        <td>{{ file.screeningStatus }}</td>
+        <td>{{ file.alertsFound }}</td>
+        <td>
+          <button type="button" class="view-details-btn" (click)="onViewDetails(file)">View Details</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
